@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<h1>Promos</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12" id="searchContainer">
+
+        </div>
+    </div>
+</div>
+
+<script src="../js/vendor/jquery/jquery-1.11.1.min.js" ></script>
+<script src="../js/vendor/bootstrap.min.js" ></script>
+<script src="../js/vendor/lodash/lodash.compat-2.4.1.min.js" ></script>
+<script src="../js/vendor/underscore.string/underscore.string.min.js" ></script>
+<script src="../js/vendor/backbone/backbone-1.1.2.js"></script>
+
+<script src="../js/components/model/filter-model.js"></script>
+<script src="../js/components/filter-view.js"></script>
+<script src="../js/components/search-view.js"></script>
+
+<script src="js/input-search-view.js"></script>
+<script>
+    $(function () {
+
+        console.log('init page');
+        var inputSearch = new BBSamples.InputSearchView({param : 'firstname'}),
+            inputSearch2 = new BBSamples.InputSearchView({param : 'lastname'}),
+            searchView = new BBSearch.SearchView({
+                'filterView': [inputSearch,inputSearch2],
+                'autoSearch' : false
+            });
+
+
+        $('#searchContainer').prepend(searchView.render().el);
+    });
+
+</script>
+</body>
+</html>
